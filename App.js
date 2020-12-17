@@ -16,8 +16,8 @@ export default function App() {
   const [obstaclesTwoNegHeight, setObstaclesTwoNegHeight] = useState(0)
   const [isGameOver, setIsGameOver] = useState(false)
   const [score, setScore] = useState(0)
-  const gravity = 10
-  const velocity = 4
+  const gravity = 6
+  const velocity = 10
   const obstaclesWidth = 50
   const obstaclesHeight = screenHeight/2
   const gap = 200
@@ -92,11 +92,11 @@ export default function App() {
           (obstaclesTwoNegHeight + obstaclesHeight + 30) 
           || 
           birdBottom > (obstaclesTwoNegHeight + obstaclesHeight + gap - 30))
-        && obstaclesLeft > screenWidth/2 - 30 
-        && obstaclesLeft < screenWidth/2 + 30
+        && obstaclesLeftTwo > screenWidth/2 - 30 
+        && obstaclesLeftTwo < screenWidth/2 + 30
       )
       ||
-      birdBottom === screenHeight || birdBottom === -screenHeight
+      birdBottom > screenHeight || birdBottom < 0
     )
     {
       gameOver()
